@@ -1,0 +1,36 @@
+# Project: FilaDinamica
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = drive.o FilaDinamica.o no.o $(RES)
+LINKOBJ  = drive.o FilaDinamica.o no.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+BIN      = FilaDinamica.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before FilaDinamica.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "FilaDinamica.exe" $(LIBS)
+
+drive.o: drive.cpp
+	$(CPP) -c drive.cpp -o drive.o $(CXXFLAGS)
+
+FilaDinamica.o: FilaDinamica.cpp
+	$(CPP) -c FilaDinamica.cpp -o FilaDinamica.o $(CXXFLAGS)
+
+no.o: no.cpp
+	$(CPP) -c no.cpp -o no.o $(CXXFLAGS)

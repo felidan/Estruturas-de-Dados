@@ -1,0 +1,36 @@
+# Project: PilhaDinamica
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o PilhaDinamica.o No.o $(RES)
+LINKOBJ  = main.o PilhaDinamica.o No.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/include" 
+BIN      = PilhaDinamica.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before PilhaDinamica.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "PilhaDinamica.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+PilhaDinamica.o: PilhaDinamica.cpp
+	$(CPP) -c PilhaDinamica.cpp -o PilhaDinamica.o $(CXXFLAGS)
+
+No.o: No.cpp
+	$(CPP) -c No.cpp -o No.o $(CXXFLAGS)
